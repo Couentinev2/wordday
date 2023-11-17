@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@babel/cli": "^7.23.0",
-    "@babel/core": "^7.23.3",
     "@babel/preset-env": "^7.23.3",
     "@react-native-async-storage/async-storage": "^1.19.5",
     "@react-native-picker/picker": "^2.5.1",
@@ -15,7 +14,7 @@
     "react-dom": "^18.2.0",
     "react-native-push-notification": "^8.1.1",
     "react-native-web": "^0.19.9",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^3.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "webpack": "^5.89.0"
   }
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
-import PushNotification from '@react-native-push-notification';
+import PushNotification from 'react-native-push-notification';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import WordDisplay from './WordDisplay'; // Your WordDisplay component
 import { getWordOfTheDay } from './wordManager'; // Function to fetch the word of the day
