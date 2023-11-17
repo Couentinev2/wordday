@@ -1,4 +1,3 @@
-import PushNotification from 'react-native-push-notification';
 import { getWordOfTheDay } from './wordManager'; // Import the function to get the word of the day
 
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import PushNotification from 'react-native-push-notification';
 
 function WordDisplay({ word, definitions, example, learningLanguage, language }) {
   const definitionKey = `${language}_definition`;

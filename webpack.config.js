@@ -6,19 +6,23 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'), // Output directory
     filename: 'bundle.js', // Output bundle file
   },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader', // Use babel-loader to transpile JS and JSX files
+module: {
+  rules: [
+    {
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs']
         },
       },
+    },
       // You can add more loaders here for other file types (CSS, images, etc.)
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'], // Automatically resolve these file extensions
+  extensions: ['.js', '.jsx', '.json'],
   },
 };

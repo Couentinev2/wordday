@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Picker } from '@react-native-picker/picker';
-import PushNotification from 'react-native-push-notification';
+import { View, Text, Picker } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import WordDisplay from './WordDisplay'; // Your WordDisplay component
+import PushNotification from 'react-native-push-notification';
+import WordDisplay from './WordDisplay'; // Assuming you have this component
 import { getWordOfTheDay } from './wordManager'; // Function to fetch the word of the day
 
 function App() {
@@ -45,6 +45,13 @@ function App() {
   const scheduleNotification = () => {
     // Logic to schedule a daily notification with the word of the day
     // This should be implemented in your notificationManager
+    const wordOfTheDay = getWordOfTheDay(learningLanguage);
+
+    PushNotification.localNotificationSchedule({
+      message: `Today's word is: ${wordOfTheDay}. Open the app to learn more!`,
+      date: new Date(Date.now() + (60 * 60 * 24 * 1000)), // Schedule for the next day
+      repeatType: 'day',
+    });
   };
 
   const handleLanguageChange = (newLanguage) => {
@@ -55,7 +62,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Picker
         selectedValue={learningLanguage}
         onValueChange={(itemValue) => handleLanguageChange(itemValue)}
@@ -73,7 +80,7 @@ function App() {
           learningLanguage={learningLanguage}
         />
       )}
-    </div>
+    </View>
   );
 }
 
