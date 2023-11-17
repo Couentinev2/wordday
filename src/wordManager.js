@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import LearningComponent from './LearningComponent';
 
 // Function to get the current day of the year
 const getDayOfYear = () => {
@@ -10,22 +11,23 @@ const getDayOfYear = () => {
 };
 
 // Function to load the word of the day
-export const getWordOfTheDay = async (learningLanguage, definitionLanguage) => {
+export const getWordOfTheDay = async (learningLanguage, definitionLanguage, level) => {
   try {
     const dayOfYear = getDayOfYear();
-    const learningData = require(`./words${learningLanguage === 'english' ? '' : learningLanguage}.json`);
-    
+    const fileName = `common${learningLanguage}_${level}.json`;
+    const learningData = require(`./${fileName}`);
+
     const wordIndex = dayOfYear % learningData.vocabulary.length;
     const word = learningData.vocabulary[wordIndex];
-    
+
     if (definitionLanguage !== 'english') {
-      const definitionData = require(`./common${definitionLanguage}_${learningLanguage}.json`);
-      const localizedDefinition = definitionData[word.word];
+      const definitionKey = `${definitionLanguage}_definition`;
+      const localizedDefinition = word[definitionKey];
       if (localizedDefinition) {
         word.definition = localizedDefinition;
       }
     }
-    
+
     return word;
   } catch (error) {
     console.error(`Failed to load the word of the day for learning language ${learningLanguage} and definition language ${definitionLanguage}:`, error);

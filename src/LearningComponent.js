@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function WordDisplay({ word, definition, example }) {
   return (
     <div>
@@ -12,6 +11,3 @@ function WordDisplay({ word, definition, example }) {
 }
 
 export default WordDisplay;
-
-
-export default LearningComponent;

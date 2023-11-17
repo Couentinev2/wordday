@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import WordDisplay from './WordDisplay'; // Your WordDisplay component
 import { getWordOfTheDay } from './wordManager'; // Function to fetch the word of the day
+import LearningComponent from './LearningComponent';
 
 function App() {
   const [currentWord, setCurrentWord] = useState({});
