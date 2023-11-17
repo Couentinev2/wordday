@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
-import WordDisplay from './WordDisplay'; // Your WordDisplay component
-import { getWordOfTheDay } from './wordManager'; // Function to fetch the word of the day
+import WordDisplay from './WordDisplay';
+import { getWordOfTheDay } from './wordManager';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import PreviousWordsPage from './PreviousWordsPage';
 
 function App() {
+  const navigate = useNavigate();
   const [currentWord, setCurrentWord] = useState({});
   const [interfaceLanguage, setInterfaceLanguage] = useState('english'); // Interface language
   const [learningLanguage, setLearningLanguage] = useState('english'); // Learning language
@@ -12,8 +15,6 @@ function App() {
 
   useEffect(() => {
     loadLanguagePreference();
-    const savedLevel = loadLevelPreference();
-    setLevel(savedLevel); // Set the initial level based on saved preference
   }, []);
 
   useEffect(() => {
@@ -49,26 +50,6 @@ function App() {
     }
   };
 
-  // Function to save the selected level
-  const saveLevelPreference = (newLevel) => {
-    try {
-      localStorage.setItem('levelPreference', newLevel);
-    } catch (error) {
-      console.error('Failed to save level preference:', error);
-    }
-  };
-
-  // Function to load the selected level
-  const loadLevelPreference = () => {
-    try {
-      const savedLevel = localStorage.getItem('levelPreference');
-      return savedLevel || 'intermediate'; // Default to 'intermediate' if no level is set
-    } catch (error) {
-      console.error('Failed to load level preference:', error);
-      return 'intermediate'; // Default to 'intermediate' in case of error
-    }
-  };
-
   const scheduleNotification = () => {
     // Logic to schedule a daily notification with the word of the day
     // This should be implemented in your notificationManager
@@ -96,11 +77,20 @@ function App() {
   // Handler for level selection change
   const handleLevelChange = (newLevel) => {
     setLevel(newLevel);
-    saveLevelPreference(newLevel); // Save the selected level
   };
 
   return (
-    <div className="App">
+      <div className="App">
+      <button onClick={() => navigate('/previous-words')}>
+        View Previous Words
+      </button>
+
+      <Routes>
+<Route path="/" element={<div>Welcome to the App!</div>} />
+        <Route path="/previous-words" element={<PreviousWordsPage />} />
+        {/* other routes as needed */}
+      </Routes>
+
       <div>
         <label>Learning Language:</label>
         <Picker

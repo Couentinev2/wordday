@@ -10,7 +10,6 @@ const getDayOfYear = () => {
   return Math.floor(diff / oneDay);
 };
 
-// Function to load the word of the day
 export const getWordOfTheDay = async (learningLanguage, definitionLanguage, level = 'intermediate') => {
   try {
     const dayOfYear = getDayOfYear();
@@ -28,12 +27,15 @@ export const getWordOfTheDay = async (learningLanguage, definitionLanguage, leve
       }
     }
 
+    console.log('Word of the Day:', word); // Add this line to log the word object
+
     return word;
   } catch (error) {
     console.error(`Failed to load the word of the day for learning language ${learningLanguage} and definition language ${definitionLanguage}:`, error);
     return null;
   }
 };
+
 
 
 // Function to save the selected languages
