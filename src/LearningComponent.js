@@ -1,13 +1,14 @@
 import React from 'react';
 
-function WordDisplay({ word, definition, example }) {
+function LearningComponent() {
+  // Your component logic goes here
   return (
     <div>
-      <h1>{word}</h1>
-      <p><strong>Definition:</strong> {definition}</p>
-      <p><strong>Example:</strong> {example}</p>
+      <h2>Welcome to Learning Component</h2>
+      <p>This is a simple example of a Learning Component.</p>
+      <p>You can customize this component with your own content and functionality.</p>
     </div>
   );
 }
 
-export default WordDisplay;
+export default LearningComponent;

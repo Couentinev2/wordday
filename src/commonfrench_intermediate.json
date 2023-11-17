@@ -2,21 +2,21 @@
   "vocabulary": [
     {
       "word": "Amour",
-      "definition": "Sentiment intense d'affection et d'attachement envers une personne ou une chose.",
+      "french_definition": "Sentiment intense d'affection et d'attachement envers une personne ou une chose.",
       "english_definition": "Intense feeling of affection and attachment towards a person or thing.",
       "korean_definition": "사람이나 물건에 대한 강렬한 애정과 애착.",
       "example": "L'amour qu'il ressent pour sa famille est incommensurable."
     },
     {
       "word": "Liberté",
-      "definition": "État ou condition de ceux qui sont libres; absence de soumission, de servitude ou de contrainte.",
+      "french_definition": "État ou condition de ceux qui sont libres; absence de soumission, de servitude ou de contrainte.",
       "english_definition": "The state or condition of being free; absence of subjection, servitude, or constraint.",
       "korean_definition": "자유로운 상태 또는 조건; 복종, 노예 상태, 또는 제약의 부재.",
       "example": "La liberté d'expression est un droit fondamental."
     },
     {
       "word": "Bonheur",
-      "definition": "État de satisfaction complète, de plénitude.",
+      "french_definition": "État de satisfaction complète, de plénitude.",
       "english_definition": "State of complete satisfaction, of fullness.",
       "korean_definition": "완전한 만족, 충만의 상태.",
       "example": "Le bonheur se trouve souvent dans les petites choses de la vie."

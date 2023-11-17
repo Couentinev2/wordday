@@ -11,7 +11,7 @@ const getDayOfYear = () => {
 };
 
 // Function to load the word of the day
-export const getWordOfTheDay = async (learningLanguage, definitionLanguage, level) => {
+export const getWordOfTheDay = async (learningLanguage, definitionLanguage, level = 'intermediate') => {
   try {
     const dayOfYear = getDayOfYear();
     const fileName = `common${learningLanguage}_${level}.json`;
@@ -34,6 +34,7 @@ export const getWordOfTheDay = async (learningLanguage, definitionLanguage, leve
     return null;
   }
 };
+
 
 // Function to save the selected languages
 export const saveSelectedLanguages = async (learningLanguage, definitionLanguage) => {

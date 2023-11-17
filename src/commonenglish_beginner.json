@@ -2,35 +2,35 @@
   "vocabulary": [
     {
       "word": "Hello",
-      "definition": "A greeting used when meeting someone or acknowledging someone's arrival or presence.",
+      "english_definition": "A greeting used when meeting someone or acknowledging someone's arrival or presence.",
       "french_definition": "Salutation utilisée lorsqu'on rencontre quelqu'un ou qu'on reconnaît l'arrivée ou la présence de quelqu'un.",
       "korean_definition": "누군가를 만나거나 누군가의 도착이나 존재를 인식할 때 사용하는 인사말.",
       "example": "She greeted her friend with a warm 'hello'."
     },
     {
       "word": "Thank",
-      "definition": "To express gratitude or appreciation to someone.",
+      "english_definition": "To express gratitude or appreciation to someone.",
       "french_definition": "Exprimer la gratitude ou l'appréciation envers quelqu'un.",
       "korean_definition": "누군가에게 감사나 감사를 표현하다.",
       "example": "He wanted to thank his teacher for all the support."
     },
     {
       "word": "Please",
-      "definition": "Used to add politeness to a request or desire.",
+      "english_definition": "Used to add politeness to a request or desire.",
       "french_definition": "Utilisé pour ajouter de la politesse à une demande ou un désir.",
       "korean_definition": "요청이나 욕구에 예의를 더하기 위해 사용됩니다.",
       "example": "Could you please pass the salt?"
     },
     {
       "word": "Yes",
-      "definition": "Used to give an affirmative response or to agree to something.",
+      "english_definition": "Used to give an affirmative response or to agree to something.",
       "french_definition": "Utilisé pour donner une réponse affirmative ou pour accepter quelque chose.",
       "korean_definition": "긍정적인 응답을 주거나 무언가에 동의하기 위해 사용됩니다.",
       "example": "Yes, I would love to come to the party."
     },
     {
       "word": "No",
-      "definition": "Used to give a negative response or to disagree with something.",
+      "english_definition": "Used to give a negative response or to disagree with something.",
       "french_definition": "Utilisé pour donner une réponse négative ou pour être en désaccord avec quelque chose.",
       "korean_definition": "부정적인 응답을 주거나 무언가에 동의하지 않기 위해 사용됩니다.",
       "example": "No, I don't think that's a good idea."
