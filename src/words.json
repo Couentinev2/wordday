@@ -1,0 +1,134 @@
+{
+  "vocabulary": [
+    {
+      "word": "Aberration",
+      "definition": "A departure from what is normal, usual, or expected, typically an unwelcome one.",
+      "french_definition": "Un écart par rapport à ce qui est normal, habituel ou attendu, généralement indésirable.",
+      "korean_definition": "보통, 일반적이거나 예상되는 것에서 벗어남, 특히 원하지 않는.",
+      "example": "The economic crisis was an aberration, not a regular occurrence."
+    },
+    {
+      "word": "Benevolent",
+      "definition": "Well-meaning and kindly.",
+      "french_definition": "Bienveillant et gentil.",
+      "korean_definition": "선의를 가지고 친절한.",
+      "example": "She had a benevolent smile that made everyone feel welcome."
+    },
+    {
+      "word": "Cacophony",
+      "definition": "A harsh, discordant mixture of sounds.",
+      "french_definition": "Un mélange de sons durs et discordants.",
+      "korean_definition": "거칠고 불협화음의 소리 혼합.",
+      "example": "A cacophony of deafening alarm bells."
+    },
+      {
+      "word": "Debilitate",
+      "definition": "Make (someone) weak and infirm.",
+      "french_definition": "Rendre (quelqu'un) faible et infirme.",
+      "korean_definition": "누군가를 약하고 병약하게 만듭니다.",
+      "example": "A week in bed had debilitated him."
+    },
+    {
+      "word": "Ebullient",
+      "definition": "Cheerful and full of energy.",
+      "french_definition": "Joyeux et plein d'énergie.",
+      "korean_definition": "명랑하고 에너지가 넘칩니다.",
+      "example": "She sounded ebullient and happy."
+    },
+    {
+      "word": "Facetious",
+      "definition": "Treating serious issues with deliberately inappropriate humor.",
+      "french_definition": "Traiter des sujets sérieux avec un humour volontairement inapproprié.",
+      "korean_definition": "심각한 문제를 고의적으로 부적절한 유머로 다룹니다.",
+      "example": "A facetious comment."
+    },
+    {
+      "word": "Garner",
+      "definition": "Gather or collect (something, especially information or approval).",
+      "french_definition": "Rassembler ou collecter (quelque chose, en particulier des informations ou une approbation).",
+      "korean_definition": "특히 정보나 승인과 같은 것을 모으거나 수집합니다.",
+      "example": "The police struggled to garner sufficient evidence."
+    },
+    {
+      "word": "Hapless",
+      "definition": "Unfortunate.",
+      "french_definition": "Malheureux.",
+      "korean_definition": "불운한.",
+      "example": "The hapless victims of the disaster."
+    },
+    {
+      "word": "Iconoclast",
+      "definition": "A person who attacks cherished beliefs or institutions.",
+      "french_definition": "Une personne qui attaque des croyances ou des institutions chéries.",
+      "korean_definition": "소중히 여기는 믿음이나 제도를 공격하는 사람.",
+      "example": "His iconoclastic tendencies led him to challenge the norms."
+    },
+    {
+      "word": "Juxtapose",
+      "definition": "Place or deal with close together for contrasting effect.",
+      "french_definition": "Placer ou traiter côte à côte pour un effet de contraste.",
+      "korean_definition": "대조적인 효과를 위해 가까이 두거나 다룹니다.",
+      "example": "Black-and-white photos of slums were starkly juxtaposed with color images."
+    },
+     {
+      "word": "Kaleidoscope",
+      "definition": "A constantly changing pattern or sequence of elements.",
+      "french_definition": "Un motif ou une séquence d'éléments en constante évolution.",
+      "korean_definition": "지속적으로 변화하는 패턴이나 요소의 순서.",
+      "example": "Her dress was a kaleidoscope of colors."
+    },
+    {
+      "word": "Languid",
+      "definition": "Slow and relaxed.",
+      "french_definition": "Lent et détendu.",
+      "korean_definition": "느리고 여유로운.",
+      "example": "They turned with languid movements."
+    },
+    {
+      "word": "Maverick",
+      "definition": "An independent-minded person.",
+      "french_definition": "Une personne indépendante d'esprit.",
+      "korean_definition": "독립적인 사고를 가진 사람.",
+      "example": "He's always been a bit of a maverick."
+    },
+    {
+      "word": "Nefarious",
+      "definition": "Wicked or criminal.",
+      "french_definition": "Méchant ou criminel.",
+      "korean_definition": "사악하거나 범죄적인.",
+      "example": "The nefarious activities of the organized crime syndicates."
+    },
+    {
+      "word": "Ostentatious",
+      "definition": "Characterized by vulgar or pretentious display.",
+      "french_definition": "Caractérisé par un affichage vulgaire ou prétentieux.",
+      "korean_definition": "저속하거나 허세 부리는 표현이 특징인.",
+      "example": "The ostentatious lifestyle of the rich and famous."
+    },
+    {
+      "word": "Pernicious",
+      "definition": "Having a harmful effect, especially in a gradual or subtle way.",
+      "example": "The pernicious influences of the mass media."
+    },
+    {
+      "word": "Quixotic",
+      "definition": "Exceedingly idealistic; unrealistic and impractical.",
+      "example": "A vast and perhaps quixotic project."
+    },
+    {
+      "word": "Reticent",
+      "definition": "Not revealing one's thoughts or feelings readily.",
+      "example": "She was extremely reticent about her personal affairs."
+    },
+    {
+      "word": "Sagacious",
+      "definition": "Having or showing keen mental discernment and good judgment.",
+      "example": "They were sagacious enough to avoid any outright confrontation."
+    },
+    {
+      "word": "Trepidation",
+      "definition": "A feeling of fear or agitation about something that may happen.",
+      "example": "He approached the door with trepidation."
+    }
+  ]
+}

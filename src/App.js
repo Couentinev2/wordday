@@ -1,23 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Picker } from '@react-native-picker/picker';
+import PushNotification from '@react-native-push-notification';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import WordDisplay from './WordDisplay'; // Your WordDisplay component
+import { getWordOfTheDay } from './wordManager'; // Function to fetch the word of the day
 
 function App() {
+  const [currentWord, setCurrentWord] = useState({});
+  const [language, setLanguage] = useState('english'); // Interface language
+  const [learningLanguage, setLearningLanguage] = useState('english'); // Learning language
+
+  useEffect(() => {
+    loadLanguagePreference();
+    scheduleNotification();
+  }, []);
+
+  useEffect(() => {
+    // Fetch and display the word of the day whenever the learning language changes
+    getWordOfTheDay(learningLanguage).then(word => {
+      setCurrentWord(word);
+    });
+  }, [learningLanguage]);
+
+  const loadLanguagePreference = async () => {
+    try {
+      const savedLanguage = await AsyncStorage.getItem('languagePreference');
+      if (savedLanguage !== null) {
+        setLanguage(savedLanguage);
+        setLearningLanguage(savedLanguage);
+      }
+    } catch (error) {
+      console.error('Failed to load language preference:', error);
+    }
+  };
+
+  const saveLanguagePreference = async (newLanguage) => {
+    try {
+      await AsyncStorage.setItem('languagePreference', newLanguage);
+    } catch (error) {
+      console.error('Failed to save language preference:', error);
+    }
+  };
+
+  const scheduleNotification = () => {
+    // Logic to schedule a daily notification with the word of the day
+    // This should be implemented in your notificationManager
+  };
+
+  const handleLanguageChange = (newLanguage) => {
+    setLanguage(newLanguage);
+    setLearningLanguage(newLanguage);
+    saveLanguagePreference(newLanguage);
+    scheduleNotification(); // Reschedule notification with new language
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Picker
+        selectedValue={learningLanguage}
+        onValueChange={(itemValue) => handleLanguageChange(itemValue)}
+      >
+        <Picker.Item label="English" value="english" />
+        <Picker.Item label="French" value="french" />
+        <Picker.Item label="Korean" value="korean" />
+      </Picker>
+
+      {currentWord.word && (
+        <WordDisplay 
+          word={currentWord.word} 
+          definitions={currentWord}
+          example={currentWord.example} 
+          learningLanguage={learningLanguage}
+        />
+      )}
     </div>
   );
 }
