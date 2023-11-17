@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 // Function to get the current day of the year
 const getDayOfYear = () => {
   const now = new Date();
@@ -11,34 +10,54 @@ const getDayOfYear = () => {
 };
 
 // Function to load the word of the day
-export const getWordOfTheDay = async (language) => {
+export const getWordOfTheDay = async (learningLanguage, definitionLanguage) => {
   try {
     const dayOfYear = getDayOfYear();
-    const data = require(`./words${language === 'english' ? '' : language}.json`);
-    const wordIndex = dayOfYear % data.vocabulary.length;
-    return data.vocabulary[wordIndex];
+    const learningData = require(`./words${learningLanguage === 'english' ? '' : learningLanguage}.json`);
+    
+    const wordIndex = dayOfYear % learningData.vocabulary.length;
+    const word = learningData.vocabulary[wordIndex];
+    
+    if (definitionLanguage !== 'english') {
+      const definitionData = require(`./common${definitionLanguage}_${learningLanguage}.json`);
+      const localizedDefinition = definitionData[word.word];
+      if (localizedDefinition) {
+        word.definition = localizedDefinition;
+      }
+    }
+    
+    return word;
   } catch (error) {
-    console.error(`Failed to load the word of the day for language ${language}:`, error);
+    console.error(`Failed to load the word of the day for learning language ${learningLanguage} and definition language ${definitionLanguage}:`, error);
     return null;
   }
 };
 
-// Function to save the selected language
-export const saveSelectedLanguage = async (language) => {
+// Function to save the selected languages
+export const saveSelectedLanguages = async (learningLanguage, definitionLanguage) => {
   try {
-    await AsyncStorage.setItem('selectedLanguage', language);
+    await AsyncStorage.setItem('learningLanguage', learningLanguage);
+    await AsyncStorage.setItem('definitionLanguage', definitionLanguage);
   } catch (error) {
-    console.error("Error saving selected language:", error);
+    console.error("Error saving selected languages:", error);
   }
 };
 
-// Function to load the selected language
-export const loadSelectedLanguage = async () => {
+// Function to load the selected languages
+export const loadSelectedLanguages = async () => {
   try {
-    const language = await AsyncStorage.getItem('selectedLanguage');
-    return language || 'english'; // Default to English if no language is set
+    const learningLanguage = await AsyncStorage.getItem('learningLanguage');
+    const definitionLanguage = await AsyncStorage.getItem('definitionLanguage');
+
+    return {
+      learningLanguage: learningLanguage || 'english',
+      definitionLanguage: definitionLanguage || 'english'
+    };
   } catch (error) {
-    console.error("Error loading selected language:", error);
-    return 'english'; // Default to English in case of error
+    console.error("Error loading selected languages:", error);
+    return {
+      learningLanguage: 'english',
+      definitionLanguage: 'english'
+    };
   }
 };

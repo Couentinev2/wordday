@@ -1,42 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Picker } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import PushNotification from 'react-native-push-notification';
-import WordDisplay from './WordDisplay'; // Assuming you have this component
+import { Picker } from '@react-native-picker/picker';
+import WordDisplay from './WordDisplay'; // Your WordDisplay component
 import { getWordOfTheDay } from './wordManager'; // Function to fetch the word of the day
 
 function App() {
   const [currentWord, setCurrentWord] = useState({});
-  const [language, setLanguage] = useState('english'); // Interface language
+  const [interfaceLanguage, setInterfaceLanguage] = useState('english'); // Interface language
   const [learningLanguage, setLearningLanguage] = useState('english'); // Learning language
+  const [definitionLanguage, setDefinitionLanguage] = useState('english'); // Definition language
 
   useEffect(() => {
     loadLanguagePreference();
-    scheduleNotification();
   }, []);
 
   useEffect(() => {
     // Fetch and display the word of the day whenever the learning language changes
-    getWordOfTheDay(learningLanguage).then(word => {
+    getWordOfTheDay(learningLanguage, definitionLanguage).then(word => {
+      console.log('Fetched word:', word); // Log the fetched word
       setCurrentWord(word);
+    }).catch(error => {
+      console.error('Error fetching word:', error);
     });
-  }, [learningLanguage]);
+  }, [learningLanguage, definitionLanguage]); // Update when either language changes
 
-  const loadLanguagePreference = async () => {
+  const loadLanguagePreference = () => {
     try {
-      const savedLanguage = await AsyncStorage.getItem('languagePreference');
-      if (savedLanguage !== null) {
-        setLanguage(savedLanguage);
-        setLearningLanguage(savedLanguage);
+      const savedInterfaceLanguage = localStorage.getItem('interfaceLanguage');
+      const savedDefinitionLanguage = localStorage.getItem('definitionLanguage');
+      if (savedInterfaceLanguage !== null && savedDefinitionLanguage !== null) {
+        setInterfaceLanguage(savedInterfaceLanguage);
+        setLearningLanguage(savedInterfaceLanguage);
+        setDefinitionLanguage(savedDefinitionLanguage);
       }
     } catch (error) {
       console.error('Failed to load language preference:', error);
     }
   };
 
-  const saveLanguagePreference = async (newLanguage) => {
+  const saveLanguagePreference = (newInterfaceLanguage, newDefinitionLanguage) => {
     try {
-      await AsyncStorage.setItem('languagePreference', newLanguage);
+      localStorage.setItem('interfaceLanguage', newInterfaceLanguage);
+      localStorage.setItem('definitionLanguage', newDefinitionLanguage);
     } catch (error) {
       console.error('Failed to save language preference:', error);
     }
@@ -45,32 +49,51 @@ function App() {
   const scheduleNotification = () => {
     // Logic to schedule a daily notification with the word of the day
     // This should be implemented in your notificationManager
-    const wordOfTheDay = getWordOfTheDay(learningLanguage);
-
-    PushNotification.localNotificationSchedule({
-      message: `Today's word is: ${wordOfTheDay}. Open the app to learn more!`,
-      date: new Date(Date.now() + (60 * 60 * 24 * 1000)), // Schedule for the next day
-      repeatType: 'day',
-    });
   };
 
-  const handleLanguageChange = (newLanguage) => {
-    setLanguage(newLanguage);
-    setLearningLanguage(newLanguage);
-    saveLanguagePreference(newLanguage);
+  const handleInterfaceLanguageChange = (newInterfaceLanguage) => {
+    setInterfaceLanguage(newInterfaceLanguage);
+    setLearningLanguage(newInterfaceLanguage);
+    saveLanguagePreference(newInterfaceLanguage, definitionLanguage);
     scheduleNotification(); // Reschedule notification with new language
   };
 
+  const handleDefinitionLanguageChange = (newDefinitionLanguage) => {
+    setDefinitionLanguage(newDefinitionLanguage);
+    saveLanguagePreference(interfaceLanguage, newDefinitionLanguage);
+
+    // Fetch and display the word of the day with the new definition language
+    getWordOfTheDay(learningLanguage, newDefinitionLanguage).then(word => {
+      setCurrentWord(word);
+    }).catch(error => {
+      console.error('Error fetching word:', error);
+    });
+  };
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Picker
-        selectedValue={learningLanguage}
-        onValueChange={(itemValue) => handleLanguageChange(itemValue)}
-      >
-        <Picker.Item label="English" value="english" />
-        <Picker.Item label="French" value="french" />
-        <Picker.Item label="Korean" value="korean" />
-      </Picker>
+    <div className="App">
+      <div>
+        <label>Learning Language:</label>
+        <Picker
+          selectedValue={interfaceLanguage}
+          onValueChange={(itemValue) => handleInterfaceLanguageChange(itemValue)}
+        >
+          <Picker.Item label="English" value="english" />
+          <Picker.Item label="French" value="french" />
+          <Picker.Item label="Korean" value="korean" />
+        </Picker>
+      </div>
+      <div>
+        <label>Definition Language:</label>
+        <Picker
+          selectedValue={definitionLanguage}
+          onValueChange={(itemValue) => handleDefinitionLanguageChange(itemValue)}
+        >
+          <Picker.Item label="English" value="english" />
+          <Picker.Item label="French" value="french" />
+          <Picker.Item label="Korean" value="korean" />
+        </Picker>
+      </div>
 
       {currentWord.word && (
         <WordDisplay 
@@ -78,9 +101,10 @@ function App() {
           definitions={currentWord}
           example={currentWord.example} 
           learningLanguage={learningLanguage}
+          language={definitionLanguage} // Pass the definition language
         />
       )}
-    </View>
+    </div>
   );
 }
 

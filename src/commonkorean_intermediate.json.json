@@ -1,0 +1,25 @@
+{
+  "vocabulary": [
+    {
+      "word": "사랑 (Sarang)",
+      "definition": "강한 애정 또는 애착의 감정.",
+      "english_definition": "A strong feeling of affection or attachment.",
+      "french_definition": "Un sentiment fort d'affection ou d'attachement.",
+      "example": "그는 가족에 대한 사랑이 깊다. (He has deep love for his family.)"
+    },
+    {
+      "word": "자유 (Jayu)",
+      "definition": "구속이나 제한 없이 원하는 대로 할 수 있는 상태.",
+      "english_definition": "The state of being free to do as one wishes, without restraint or limitation.",
+      "french_definition": "L'état d'être libre de faire ce que l'on veut, sans contrainte ni limitation.",
+      "example": "자유는 모든 인간의 기본적인 권리입니다. (Freedom is a basic right of all humans.)"
+    },
+    {
+      "word": "행복 (Haengbok)",
+      "definition": "만족과 기쁨의 상태.",
+      "english_definition": "A state of satisfaction and joy.",
+      "french_definition": "Un état de satisfaction et de joie.",
+      "example": "행복은 종종 작은 것에서 찾을 수 있습니다. (Happiness is often found in the little things.)"
+    }
+  ]
+}

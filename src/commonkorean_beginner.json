@@ -1,0 +1,39 @@
+{
+  "vocabulary": [
+    {
+      "word": "안녕하세요 (Annyeonghaseyo)",
+      "definition": "A standard greeting used when meeting someone.",
+      "french_definition": "Une salutation standard utilisée lorsqu'on rencontre quelqu'un.",
+      "korean_definition": "표준 인사말로, 누군가를 만났을 때 사용합니다.",
+      "example": "그는 친구를 만나자마자 '안녕하세요'라고 말했다. (He said 'Annyeonghaseyo' as soon as he met his friend.)"
+    },
+    {
+      "word": "감사합니다 (Gamsahamnida)",
+      "definition": "A phrase used to express thanks.",
+      "french_definition": "Une phrase utilisée pour exprimer des remerciements.",
+      "korean_definition": "감사의 표현으로 사용되는 말입니다.",
+      "example": "선생님께 '감사합니다'라고 말하며 그녀는 고개를 숙였다. (She bowed and said 'Gamsahamnida' to her teacher.)"
+    },
+    {
+      "word": "제발 (Jebal)",
+      "definition": "A word used when making a plea or request.",
+      "french_definition": "Un mot utilisé lorsqu'on fait une supplique ou une demande.",
+      "korean_definition": "부탁이나 요청을 할 때 사용하는 말입니다.",
+      "example": "제발 도와주세요. (Please help me.)"
+    },
+    {
+      "word": "네 (Ne)",
+      "definition": "A word indicating an affirmative answer or agreement.",
+      "french_definition": "Un mot indiquant une réponse affirmative ou un accord.",
+      "korean_definition": "긍정적인 대답이나 동의를 나타내는 말입니다.",
+      "example": "네, 저는 그 파티에 가고 싶어요. (Yes, I would like to go to that party.)"
+    },
+    {
+      "word": "아니요 (Aniyo)",
+      "definition": "A word indicating a negative answer or disagreement.",
+      "french_definition": "Un mot indiquant une réponse négative ou un désaccord.",
+      "korean_definition": "부정적인 대답이나 동의하지 않음을 나타내는 말입니다.",
+      "example": "아니요, 그것이 좋은 생각이라고 생각하지 않아요. (No, I don't think that's a good idea.)"
+    }
+  ]
+}
