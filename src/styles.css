@@ -5,7 +5,7 @@
 }
 
 .wordDisplayContainer {
-	margin: auto 0;
+	margin: auto;
 	padding: 0 32px;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .exampleOfTheDay strong{
-color: red;
+color: #800000;
 }
 
 .menu-container {
