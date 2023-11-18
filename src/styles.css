@@ -1,0 +1,76 @@
+.App {
+  background-image: linear-gradient(to bottom, rgba(173, 216, 230, 1), rgba(70, 130, 180, 1));
+  height: 100vh;
+  display: flex;
+}
+
+.wordDisplayContainer {
+	margin: auto 0;
+	padding: 0 32px;
+}
+
+
+.wordDisplayContainer .apptitle {
+  text-align: center;
+  font-size: 16px;
+}
+
+
+.exampleOfTheDay {
+	text-align: center;
+	border: 3px solid #000;
+	width: fit-content;	
+	margin: auto;
+	padding: 24px;
+	font-size: 21px;
+}
+
+.exampleOfTheDay strong{
+color: red;
+}
+
+.menu-container {
+	margin: 32px;
+	position: absolute;
+}
+
+.wordOfTheDay {
+	font-size: 34px;
+	font-weight: bold;
+	text-align: center;
+
+}
+
+.definitionOfTheDay {
+	text-align: center;
+	font-size: 18px;
+}
+
+
+.menu-toggle {
+  display: none; 
+}
+
+.menu-content {
+  display: none; 
+  border: 1px solid black;
+  background-color:#fff;
+  padding: 12px;
+  margin-top: 12px;
+  max-width: fit-content;
+  position: absolute ;
+  margin-bottom: 12px;
+}
+
+.menu-toggle:checked + .menu-button + .menu-content {
+  display: block; 
+}
+
+.menu-button {
+  cursor: pointer;
+  padding: 12px;
+  border: 1px solid black;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  font-weight: bold;
+  color: #fff;
+}

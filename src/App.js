@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Picker } from '@react-native-picker/picker';
 import WordDisplay from './WordDisplay';
 import { getWordOfTheDay } from './wordManager';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PreviousWordsPage from './PreviousWordsPage';
+import MasterMenu from './MasterMenu'; // Import the MasterMenu component
+import './styles.css';
 
 function App() {
-  const navigate = useNavigate();
   const [currentWord, setCurrentWord] = useState({});
   const [interfaceLanguage, setInterfaceLanguage] = useState('english'); // Interface language
   const [learningLanguage, setLearningLanguage] = useState('english'); // Learning language
@@ -18,14 +18,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Fetch and display the word of the day whenever any of the dependencies change
     getWordOfTheDay(learningLanguage, definitionLanguage, level).then(word => {
-      console.log('Fetched word:', word); // Log the fetched word
       setCurrentWord(word);
     }).catch(error => {
       console.error('Error fetching word:', error);
     });
-  }, [learningLanguage, definitionLanguage, level]); // Update when language or level changes
+  }, [learningLanguage, definitionLanguage, level]);
 
   const loadLanguagePreference = () => {
     try {
@@ -55,18 +53,16 @@ function App() {
     // This should be implemented in your notificationManager
   };
 
-  const handleInterfaceLanguageChange = (newInterfaceLanguage) => {
+   const handleInterfaceLanguageChange = (newInterfaceLanguage) => {
     setInterfaceLanguage(newInterfaceLanguage);
     setLearningLanguage(newInterfaceLanguage);
     saveLanguagePreference(newInterfaceLanguage, definitionLanguage);
-    scheduleNotification(); // Reschedule notification with new language
+    scheduleNotification();
   };
 
   const handleDefinitionLanguageChange = (newDefinitionLanguage) => {
     setDefinitionLanguage(newDefinitionLanguage);
     saveLanguagePreference(interfaceLanguage, newDefinitionLanguage);
-
-    // Fetch and display the word of the day with the new definition language
     getWordOfTheDay(learningLanguage, newDefinitionLanguage, level).then(word => {
       setCurrentWord(word);
     }).catch(error => {
@@ -74,64 +70,33 @@ function App() {
     });
   };
 
-  // Handler for level selection change
   const handleLevelChange = (newLevel) => {
     setLevel(newLevel);
   };
 
   return (
-      <div className="App">
-      <button onClick={() => navigate('/previous-words')}>
-        View Previous Words
-      </button>
+    <div className="App">
+      <MasterMenu
+        interfaceLanguage={interfaceLanguage}
+        handleInterfaceLanguageChange={handleInterfaceLanguageChange}
+        definitionLanguage={definitionLanguage}
+        handleDefinitionLanguageChange={handleDefinitionLanguageChange}
+        level={level}
+        handleLevelChange={handleLevelChange}
+      />
 
       <Routes>
-<Route path="/" element={<div>Welcome to the App!</div>} />
         <Route path="/previous-words" element={<PreviousWordsPage />} />
         {/* other routes as needed */}
       </Routes>
 
-      <div>
-        <label>Learning Language:</label>
-        <Picker
-          selectedValue={interfaceLanguage}
-          onValueChange={(itemValue) => handleInterfaceLanguageChange(itemValue)}
-        >
-          <Picker.Item label="English" value="english" />
-          <Picker.Item label="French" value="french" />
-          <Picker.Item label="Korean" value="korean" />
-        </Picker>
-      </div>
-      <div>
-        <label>Definition Language:</label>
-        <Picker
-          selectedValue={definitionLanguage}
-          onValueChange={(itemValue) => handleDefinitionLanguageChange(itemValue)}
-        >
-          <Picker.Item label="English" value="english" />
-          <Picker.Item label="French" value="french" />
-          <Picker.Item label="Korean" value="korean" />
-        </Picker>
-      </div>
-      <div>
-        <label>Level:</label>
-        <Picker
-          selectedValue={level}
-          onValueChange={(itemValue) => handleLevelChange(itemValue)}
-        >
-          <Picker.Item label="Beginner" value="beginner" />
-          <Picker.Item label="Intermediate" value="intermediate" />
-          <Picker.Item label="Advanced" value="advanced" />
-        </Picker>
-      </div>
-
       {currentWord.word && (
         <WordDisplay 
-          word={currentWord.word} 
+          word={currentWord.word}
           definitions={currentWord}
-          example={currentWord.example} 
+          example={currentWord.example}
           learningLanguage={learningLanguage}
-          language={definitionLanguage} // Pass the definition language
+          language={definitionLanguage}
         />
       )}
     </div>
