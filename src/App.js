@@ -3,6 +3,8 @@ import WordDisplay from './WordDisplay';
 import { getWordOfTheDay } from './wordManager';
 import { Routes, Route } from 'react-router-dom';
 import PreviousWordsPage from './PreviousWordsPage';
+import AboutPage from './about';
+
 import MasterMenu from './MasterMenu'; // Import the MasterMenu component
 import './styles.css';
 
@@ -84,11 +86,7 @@ function App() {
         level={level}
         handleLevelChange={handleLevelChange}
       />
-
-      <Routes>
-        <Route path="/previous-words" element={<PreviousWordsPage />} />
-        {/* other routes as needed */}
-      </Routes>
+      <h1 className="apptitle">Daily Vocabulary Builder</h1>
 
       {currentWord.word && (
         <WordDisplay 

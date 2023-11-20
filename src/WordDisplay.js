@@ -19,7 +19,6 @@ function WordDisplay({ word, definitions, example, learningLanguage, language })
   return (
         <div className="wordDisplayContainer">
 
-      <h1 className="apptitle">Daily Vocabulary Builder</h1>
       <p className="wordOfTheDay">{word}</p>
       <p className="definitionOfTheDay">{definitions[definitionKey]}</p>
       <p className="exampleOfTheDay"><span dangerouslySetInnerHTML={{ __html: exampleWithBoldWord }} /></p>
